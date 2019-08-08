@@ -19,8 +19,6 @@ auth_response = requests.get(api_url+token_endpoint, headers=auth_header, verify
 
 response_json = json.loads(auth_response.text)
 
-print(response_json['access_token'])
-
 req_header = {'Authorization': response_json['token_type'].capitalize() + " " + response_json['access_token']}
 
 user_info_response = requests.get(api_url+users_info_endpoint, headers=req_header, verify=False)
